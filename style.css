@@ -19,6 +19,23 @@ a {
     font-style: italic;
 }
 
+dfn {
+    font-style: normal;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.15rem;
+}
+
+dfn:active:after {
+    content:attr(title);
+    padding:5px;
+    border:1px solid #ccc;
+    top:5px;
+    right:10%;
+    background: #bada55;
+}
+
 p {
     display: block;
     margin-block-start: 1em;
