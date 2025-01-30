@@ -56,6 +56,16 @@ div {
     width: 100%;
 }
 
+h1 {
+    margin: 8px 0px;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.4em;
+    color: rgb(244, 244, 244);
+    width: 100%;
+    text-align: center;
+}
+
 main {
     flex: 1 1 0%;
     display: flex;
@@ -97,4 +107,28 @@ hr {
         background-image: url('data:image/svg+xml;utf8,<svg width="9" height="9" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg"><rect x="0.75" y="0.5" width="8" height="8" rx="1" fill="%23EF4056" /></svg>');
         right: -18px;
     }
+}
+
+input {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 8px;
+    font-family: "Marcellus", serif;
+    font-size: 1rem;
+    text-align: center;
+}
+
+button {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 8px 16px;
+    font-family: "Marcellus", serif;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
