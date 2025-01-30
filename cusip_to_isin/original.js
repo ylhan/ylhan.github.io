@@ -1,6 +1,47 @@
+// Initialize the Check object
+const Check = {};
+
+// Define the cusipChars string
+const cusipChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ*@#";
+
+// Populate the Check object
+for (let i = 0; i < cusipChars.length; i++) {
+    const char = cusipChars[i];
+    Check[char] = [
+        (i % 10) + Math.floor(i / 10),
+        (2 * i % 10) + Math.floor(2 * i / 10)
+    ];
+}
+
+function cusipChecksum(cusip) {
+    if (!cusip || cusip.length !== 9) {
+        return false;
+    }
+
+    let sum = 0;
+    for (let i = 0; i < 8; i++) {
+        const char = cusip[i];
+        const value = Check[char] ? Check[char][i % 2] : 0;
+        sum += value;
+    }
+
+    const checkDigit = (10 - (sum % 10)) % 10;
+    return checkDigit;
+}
+
 function convertCusipToIsin(cusip, countryCode) {
     if (!cusip || cusip.length !== 9) {
         document.getElementById('result').innerText = '...';
+        return;
+    }
+
+    const checksum = cusipChecksum(cusip);
+    const givenChecksum = parseInt(cusip[8]);
+    const isValid = checksum === givenChecksum;
+
+    if (!isValid) {
+        const message = `Invalid checksum: ${cusip[8]} should be ${checksum}`;
+        document.getElementById('result').innerText = message;
         return;
     }
 
