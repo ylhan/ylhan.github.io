@@ -40,8 +40,8 @@ function convertCusipToIsin(cusip, countryCode) {
     const isValid = checksum === givenChecksum;
 
     if (!isValid) {
-        const message = `Invalid checksum: ${cusip[8]} should be ${checksum}`;
-        document.getElementById('result').innerText = message;
+        const message = `Invalid checksum: <code>${cusip[8]}</code> should be <code>${checksum}</code>`;
+        document.getElementById('result').innerHTML = message;        
         return;
     }
 
@@ -85,7 +85,7 @@ function convertCusipToIsin(cusip, countryCode) {
 
     const isin = `${countryCode}${cusip}${checkDigit}`;
 
-    document.getElementById('result').innerText = `ISIN: ${isin}`;
+    document.getElementById('result').innerHTML = `<code>${isin}</code>`;
 }
 
 document.getElementById('cusipInput').addEventListener('input', function (e) {

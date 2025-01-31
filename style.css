@@ -114,7 +114,7 @@ input {
     border: 1px solid white;
     color: white;
     padding: 8px;
-    font-family: "Marcellus", serif;
+    font-family: monospace;
     font-size: 1rem;
     text-align: center;
 }
@@ -149,4 +149,8 @@ select {
 
 select:hover {
     background-color: rgba(255, 255, 255, 0.1);
+}
+
+code {
+    display: inline-block;
 }
